@@ -1,0 +1,10 @@
+[Unit]
+Description=Face unlock service
+
+[Install]
+WantedBy = graphical.target
+
+[Service]
+Type=Simple
+Restart=always
+ExecStart=/usr/bin/bash /home/sbjr/my_workspace/plasma_face_unlock/start_script.sh
