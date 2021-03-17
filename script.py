@@ -30,6 +30,8 @@ def unlock(encodings):
         for i in range(10):
             _, frame = cap.read()
             face_loc = face_recognition.face_locations(frame, model='cnn')
+            if len(face_loc) < 1:
+                continue
             encoding = face_recognition.face_encodings(frame, face_loc)
 
             if len(encoding) >= 1:
@@ -47,10 +49,8 @@ def unlock(encodings):
         if not is_screen_locked():
             break
 
-        # sleep for some time (1 mins)
-        time.sleep(60*1)
-        
-        
+        # sleep for some time (10 seconds)
+        time.sleep(10)
 
 
 if __name__ == '__main__':
